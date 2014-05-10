@@ -1,5 +1,5 @@
 
-sql program to track working ours by hooking to pm-util suspend operation.
+sql program to track working hours by hooking to pm-util suspend operation.
 
 when computer wakes then it stores start of the day, 
 and when it is last suspended it marks end of the day .
