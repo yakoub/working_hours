@@ -13,7 +13,7 @@ end ]
 
 create procedure set_day(in day Date, in start Time, in end Time)
 begin
-  insert ignore into working_track 
+  insert into working_track 
   values(day, start, end)
   on duplicate key update start = start, end = end;
 end ]
