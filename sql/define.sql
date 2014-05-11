@@ -61,4 +61,16 @@ begin
     time_format(sec_to_time(month_total/total_days), '%H:%i') as 'Average days';
 end ]
 
+create procedure report_now()
+begin
+  select 
+    day as Day,
+    start as Start,
+    end as 'Last End',
+    current_time() as 'Now',
+    time_format( timediff(current_time(), start), '%H:%i') as 'Current Total'
+  from working_track 
+  where day = current_date(); 
+end ]
+
 delimiter ;
