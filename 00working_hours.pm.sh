@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 worker_mysql="mysql -u worker working_hours"
 

@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 # working_hours.sh COMMAND
 # COMANDS:

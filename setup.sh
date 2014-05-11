@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 echo "warning: database \"working hours\" will be erased"
 echo "enter mysql root password:"
 mysql -u root -p < sql/setup.sql 
