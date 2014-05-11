@@ -39,6 +39,7 @@ end ]
 create procedure report_month(in month int)
 begin
   declare month_total bigint;
+  declare total_days smallint;
 
   select 
     date_format(day, '%d') as Day,
@@ -49,23 +50,15 @@ begin
   where month(day) = month; 
 
   select
-    sum(time_to_sec(timediff(end, start))) into month_total
+    count(*),
+    sum(time_to_sec(timediff(end, start))) 
+    into total_days, month_total
   from working_track
   where month(day) = month;
   
-  select time_format(sec_to_time(month_total), '%H:%i') as 'Month total';
-end ]
-
-create procedure report_now()
-begin
   select 
-    day as Day,
-    start as Start,
-    end as 'Last End',
-    current_time() as 'Now',
-    time_format( timediff(current_time(), start), '%H:%i') as 'Current Total'
-  from working_track 
-  where day = current_date(); 
+    time_format(sec_to_time(month_total), '%H:%i') as 'Month total',
+    time_format(sec_to_time(month_total/total_days), '%H:%i') as 'Average days';
 end ]
 
 delimiter ;
