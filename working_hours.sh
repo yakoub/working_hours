@@ -38,6 +38,6 @@ case "$1" in
     fi
   ;;
   (*)
-    echo "unrecognized command $1"
+    $worker_mysql -e 'call report_now()'
   ;;
 esac
